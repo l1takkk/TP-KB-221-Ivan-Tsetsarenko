@@ -1,4 +1,4 @@
-test_str = "Text for testing"
+test_str = "Text for test"
 print("Length:", len(test_str))
 print("First character:", test_str[0])
 print("Last character:", test_str[-1])
