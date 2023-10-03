@@ -17,7 +17,7 @@ def divide(x, y):
     return x / y
 
 while True:
-    # Display the menu
+    # display the menu
     print("Select an operation:")
     print("1. Addition")
     print("2. Subtraction")
@@ -25,10 +25,10 @@ while True:
     print("4. Division")
     print("5. Exit")
 
-    # Get user's choice
+    # get user's choice
     choice = input("Enter the operation number (1/2/3/4/5): ")
 
-    # Check if the choice is a number
+    # check if the choice is a number
     if choice.isdigit():
         choice = int(choice)
         if choice == 5:
