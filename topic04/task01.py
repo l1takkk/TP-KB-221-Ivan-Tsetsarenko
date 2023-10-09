@@ -8,43 +8,47 @@ def multiplication(x, y):
     return x * y
 
 def division(x, y):
-    try:
-        result = x / y
-        return result
-    except ZeroDivisionError:
-        return "Помилка: ділення на нуль"
+    if y == 0:
+        raise ValueError("Ділення на нуль неможливе")
+    return x / y
+
+def GetNumber(prompt):
+    while True:
+        try:
+            x = float(input(prompt))
+            return x
+        except ValueError:
+            print("Некоректне значення, спробуйте ще раз.")
 
 while True:
-    print("Оберіть операцію:")
+    print("Choose operation:")
     print("1. Додавання")
     print("2. Віднімання")
     print("3. Множення")
     print("4. Ділення")
     print("5. Вихід")
-
-    operation = input("Введіть номер операції (1/2/3/4/5): ")
-
-    if operation == '5':
-        print("Сессія завершена")
+    
+    choice = input("Номер операції (1/2/3/4/5): ")
+    
+    if choice == "5":
+        print("Вихід...")
         break
+    
+    if choice in ('1', '2', '3', '4'):
+        
+        FirstNumber = GetNumber("Перше число: ")
+        SecondNumber = GetNumber("Друге число: ")
 
-    if operation not in ('1', '2', '3', '4'):
-        print("Некоректний вибір операції")
-        continue
+        try:
+            if choice == '1':
+                result = addition(FirstNumber, SecondNumber)
+            elif choice == '2':
+                result = subtraction(FirstNumber, SecondNumber)
+            elif choice == '3':
+                result = multiplication(FirstNumber, SecondNumber)
+            elif choice == '4':
+                result = division(FirstNumber, SecondNumber)
 
-    try:
-        number1 = float(input("Введіть перше число: "))
-        number2 = float(input("Введіть друге число: "))
-
-        if operation == '1':
-            result = addition(number1, number2)
-        elif operation == '2':
-            result = subtraction(number1, number2)
-        elif operation == '3':
-            result = multiplication(number1, number2)
-        elif operation == '4':
-            result = division(number1, number2)
-
-        print("Результат:", result)
-    except ValueError:
-        print("Некоректне введення чисел")
+            print("Результат:", result)
+        except ValueError as e:
+            print("Помилка:", e)
