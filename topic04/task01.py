@@ -21,7 +21,7 @@ def GetNumber(prompt):
             print("Некоректне значення, спробуйте ще раз.")
 
 while True:
-    print("Choose operation:")
+    print("Виберіть операцію:")
     print("1. Додавання")
     print("2. Віднімання")
     print("3. Множення")
