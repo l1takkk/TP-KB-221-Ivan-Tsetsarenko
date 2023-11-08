@@ -1,34 +1,21 @@
 class Student:
-    def __init__(self, name, phone):
+    def __init__(self, name, phone, email, address):
         self.name = name
         self.phone = phone
+        self.email = email
+        self.address = address
 
     def __str__(self):
-        return f"Student name is {self.name}, Phone is {self.phone}"
-
-def printAllList(students):
-    for student in students:
-        print(student)
+        return f"Student name is {self.name}, Phone is {self.phone}, Email is {self.email}, Address is {self.address}"
 
 def addNewElement(students):
     name = input("Please enter student name: ")
     phone = input("Please enter student phone: ")
-    new_student = Student(name, phone)
+    email = input("Please enter student email: ")
+    address = input("Please enter student address: ")
+    new_student = Student(name, phone, email, address)
     students.append(new_student)
     print("New element has been added")
-
-def deleteElement(students):
-    name = input("Please enter name to be deleted: ")
-    to_delete = None
-    for student in students:
-        if name == student.name:
-            to_delete = student
-            break
-    if to_delete:
-        students.remove(to_delete)
-        print("Element has been deleted")
-    else:
-        print("Element was not found")
 
 def updateElement(students):
     name = input("Please enter name to be updated: ")
@@ -37,7 +24,8 @@ def updateElement(students):
             print("What do you want to update?")
             print("1. Name")
             print("2. Phone")
-            print("3. Both")
+            print("3. Email")
+            print("4. Address")
             choice = int(input("Please enter your choice: "))
             if choice == 1:
                 new_name = input("Please enter the new name: ")
@@ -46,10 +34,11 @@ def updateElement(students):
                 new_phone = input("Please enter the new phone: ")
                 student.phone = new_phone
             elif choice == 3:
-                new_name = input("Please enter the new name: ")
-                new_phone = input("Please enter the new phone: ")
-                student.name = new_name
-                student.phone = new_phone
+                new_email = input("Please enter the new email: ")
+                student.email = new_email
+            elif choice == 4:
+                new_address = input("Please enter the new address: ")
+                student.address = new_address
             else:
                 print("Invalid choice")
             break
@@ -58,10 +47,10 @@ def updateElement(students):
 
 def main():
     students = [
-        Student("Bob", "0631234567"),
-        Student("Emma", "0631234567"),
-        Student("Jon", "0631234567"),
-        Student("Zak", "0631234567")
+        Student("Bob", "0631234567", "bob@email.com", "123 Main St"),
+        Student("Emma", "0631234567", "emma@email.com", "456 Elm St"),
+        Student("Jon", "0631234567", "jon@email.com", "789 Oak St"),
+        Student("Zak", "0631234567", "zak@email.com", "101 Pine St")
     ]
 
     while True:
